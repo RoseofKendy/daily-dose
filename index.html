@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Dose</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+</head>
+<body>
+  <!-- Landing Section -->
+  <header class="landing">
+    <h1>Daily Dose</h1>
+    <p>Your daily source of motivation, one quote at a time.</p>
+    <button id="get-dose-btn">Get Daily Dose</button>
+  </header>
+
+  <!-- Quote Display Section -->
+  <main id="quote-section" class="hidden">
+    <blockquote id="quote-text">“Click the button to get inspired!”</blockquote>
+    <cite id="quote-author">— Author</cite>
+    
+    <div class="quote-actions">
+      <button id="save-favorite-btn" title="Save to Favorites">❤️ Save</button>
+    </div>
+  </main>
+
+  <!-- Favorites Section -->
+  <section id="favorites-section">
+    <h2>My Favorites</h2>
+    <ul id="favorites-list">
+      <!-- Favorite quotes will appear here -->
+    </ul>
+  </section>
+
+  <!-- Optional: Search Feature (Bonus/Stretch) -->
+  <section id="search-section" class="hidden">
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search by keyword or author..." />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sharon Kendi Njue. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
