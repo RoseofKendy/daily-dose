@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed');
 
   const quoteAPI = 'http://localhost:3000/quotes';
-  const dailyDoseBtn = document.querySelector('.btn.white'); // Get Daily Dose button
+  const favoritesAPI = 'http://localhost:3000/favorites'; // ✅ Added
+  const dailyDoseBtn = document.querySelector('.btn.white');
   const detailSection = document.querySelector('.detail');
   const inspireBtn = document.getElementById('inspirationBtn');
   const inspirationResult = document.getElementById('inspirationResult');
+  const categoryFilter = document.getElementById('categoryFilter');
   const messages = [
     "You're glowing with ideas!",
     "Pretty inspired right now.",
@@ -14,40 +16,33 @@ document.addEventListener('DOMContentLoaded', () => {
     "Absolutely unstoppable!"
   ];
 
-  const categoryFilter = document.getElementById('categoryFilter');
+  let favorites = []; // ✅ Global array synced with json-server
 
-if (categoryFilter) {
-  categoryFilter.addEventListener('change', () => {
-    const selectedCategory = categoryFilter.value;
+  if (categoryFilter) {
+    categoryFilter.addEventListener('change', () => {
+      const selectedCategory = categoryFilter.value;
 
-    fetch(quoteAPI)
-      .then(response => response.json())
-      .then(quotes => {
-        const filteredQuotes = selectedCategory
-          ? quotes.filter(quote => quote.category === selectedCategory)
-          : quotes;
+      fetch(quoteAPI)
+        .then(response => response.json())
+        .then(quotes => {
+          const filteredQuotes = selectedCategory
+            ? quotes.filter(quote => quote.category === selectedCategory)
+            : quotes;
 
-        renderQuoteList(filteredQuotes);
-      })
-      .catch(error => {
-        console.error('Error filtering quotes:', error);
-      });
-  });
-}
+          renderQuoteList(filteredQuotes);
+        })
+        .catch(error => {
+          console.error('Error filtering quotes:', error);
+        });
+    });
+  }
 
-
-  // ------------------------------
-  // Category Cards Hover Effect
-  // ------------------------------
   const categoryCards = document.querySelectorAll('.category-card');
   categoryCards.forEach(card => {
     card.addEventListener('mouseenter', () => card.classList.add('hovered'));
     card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
   });
 
-  // ------------------------------
-  // Get Daily Dose - Fetch from db.json
-  // ------------------------------
   let currentQuote = null;
 
   dailyDoseBtn.addEventListener('click', () => {
@@ -65,9 +60,6 @@ if (categoryFilter) {
       });
   });
 
-  // ------------------------------
-  // Show Quote in Detail Section
-  // ------------------------------
   function renderQuoteDetail(quote) {
     detailSection.innerHTML = `
       <img src="https://via.placeholder.com/600x200" alt="Quote Detail">
@@ -79,11 +71,9 @@ if (categoryFilter) {
       </div>
     `;
 
-    // Save to favorites from detail section
     const saveBtn = document.getElementById('saveBtn');
     saveBtn.addEventListener('click', () => {
-      saveToFavorites(quote);
-      renderFavorites();
+      saveToFavorites(quote); // ✅ Will use json-server
     });
   }
 
@@ -95,14 +85,14 @@ if (categoryFilter) {
       quoteSection.className = 'section';
       document.body.insertBefore(quoteSection, document.querySelector('footer'));
     }
-  
+
     quoteSection.innerHTML = '<h2>✨ Filtered Quotes</h2>';
-  
+
     if (quotes.length === 0) {
       quoteSection.innerHTML += '<p>No quotes found in this category.</p>';
       return;
     }
-  
+
     quotes.forEach(quote => {
       const quoteCard = document.createElement('div');
       quoteCard.className = 'card';
@@ -114,10 +104,7 @@ if (categoryFilter) {
       quoteSection.appendChild(quoteCard);
     });
   }
-  
-  // ------------------------------
-  // Show Quote Below Hero Section
-  // ------------------------------
+
   function showQuote(quote) {
     let quoteSection = document.getElementById('quote-display');
     if (!quoteSection) {
@@ -138,14 +125,10 @@ if (categoryFilter) {
 
     const saveBtn = document.getElementById('saveQuoteBtn');
     saveBtn.addEventListener('click', () => {
-      saveToFavorites(quote);
-      renderFavorites();
+      saveToFavorites(quote); // ✅ Will use json-server
     });
   }
 
-  // ------------------------------
-  // Inspiration Meter
-  // ------------------------------
   if (inspireBtn) {
     inspireBtn.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * messages.length);
@@ -153,72 +136,91 @@ if (categoryFilter) {
     });
   }
 
-  // ------------------------------
-  // Save to Favorites (localStorage)
-  // ------------------------------
+  // ✅ NEW: Save to Favorites using json-server
   function saveToFavorites(quote) {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (!favorites.find(q => q.text === quote.text)) {
-      favorites.push(quote);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    }
+    if (favorites.find(f => f.text === quote.text)) return;
+
+    fetch(favoritesAPI, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(quote)
+    })
+      .then(res => res.json())
+      .then(newFavorite => {
+        favorites.push(newFavorite);
+        renderFavorites();
+      });
   }
 
+  // ✅ NEW: Render favorites from json-server
   function renderFavorites() {
     const favoritesContainer = document.querySelector('.grid');
     if (!favoritesContainer) return;
-  
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
     favoritesContainer.innerHTML = ''; // Clear old
-  
-    favorites.forEach((fav, index) => {
+
+    favorites.forEach(fav => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
         <img src="https://via.placeholder.com/300x200" alt="Favorite Quote">
         <h3>${fav.author || 'Unknown Author'}</h3>
         <p>"${fav.text}"</p>
-        <button class="delete-btn btn small" data-index="${index}">Delete</button>
+        <button class="delete-btn btn small" data-id="${fav.id}">Delete</button>
       `;
-  
+
       card.querySelector('.delete-btn').addEventListener('click', (e) => {
-        const idx = e.target.dataset.index;
-        deleteFavorite(idx);
+        const id = e.target.dataset.id;
+        deleteFavorite(id);
       });
-  
+
       favoritesContainer.appendChild(card);
     });
-  
-    // 👉 Append Clear All button if there are any favorites
+
     let existingClearBtn = document.getElementById('clearFavoritesBtn');
     if (!existingClearBtn && favorites.length > 0) {
       const clearBtn = document.createElement('button');
       clearBtn.id = 'clearFavoritesBtn';
       clearBtn.className = 'btn red';
       clearBtn.textContent = 'Clear All Favorites';
-      clearBtn.addEventListener('click', () => {
-        localStorage.removeItem("favorites");
-        renderFavorites();
-      });
-  
-      // Insert after the favorites container
+      clearBtn.addEventListener('click', clearAllFavorites); // ✅ updated
+
       favoritesContainer.parentNode.insertBefore(clearBtn, favoritesContainer.nextSibling);
     } else if (favorites.length === 0 && existingClearBtn) {
-      existingClearBtn.remove(); // Remove if no favorites left
+      existingClearBtn.remove();
     }
   }
-  
 
-  function deleteFavorite(index) {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    favorites.splice(index, 1); // Remove by index
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    renderFavorites(); // Re-render UI
+  // ✅ NEW: Delete a favorite from json-server
+  function deleteFavorite(id) {
+    fetch(`${favoritesAPI}/${id}`, { method: "DELETE" })
+      .then(() => {
+        favorites = favorites.filter(f => f.id != id);
+        renderFavorites();
+      });
   }
 
-  // ------------------------------
-  // Optional: Handle Form Submission
-  // ------------------------------
+  // ✅ NEW: Clear all favorites from server
+  function clearAllFavorites() {
+    Promise.all(favorites.map(f =>
+      fetch(`${favoritesAPI}/${f.id}`, { method: "DELETE" })
+    )).then(() => {
+      favorites = [];
+      renderFavorites();
+    });
+  }
+
+  // ✅ NEW: Load favorites from json-server on page load
+  function loadFavoritesFromServer() {
+    fetch(favoritesAPI)
+      .then(res => res.json())
+      .then(data => {
+        favorites = data;
+        renderFavorites();
+      });
+  }
+
+  // Optional form logic
   const form = document.getElementById('quote-form');
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -228,6 +230,6 @@ if (categoryFilter) {
     });
   }
 
-  // Initial load of favorites
-  renderFavorites();
+  // ✅ Initial load of favorites from server
+  loadFavoritesFromServer();
 });
