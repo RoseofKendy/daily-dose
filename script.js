@@ -117,21 +117,53 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderFavorites() {
     const favoritesContainer = document.querySelector('.grid');
     if (!favoritesContainer) return;
-
+  
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
     favoritesContainer.innerHTML = ''; // Clear old
-
-    favorites.forEach(fav => {
+  
+    favorites.forEach((fav, index) => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
         <img src="https://via.placeholder.com/300x200" alt="Favorite Quote">
         <h3>${fav.author || 'Unknown Author'}</h3>
         <p>"${fav.text}"</p>
+        <button class="delete-btn btn small" data-index="${index}">Delete</button>
       `;
+  
+      card.querySelector('.delete-btn').addEventListener('click', (e) => {
+        const idx = e.target.dataset.index;
+        deleteFavorite(idx);
+      });
+  
       favoritesContainer.appendChild(card);
     });
+  
+    // 👉 Append Clear All button if there are any favorites
+    let existingClearBtn = document.getElementById('clearFavoritesBtn');
+    if (!existingClearBtn && favorites.length > 0) {
+      const clearBtn = document.createElement('button');
+      clearBtn.id = 'clearFavoritesBtn';
+      clearBtn.className = 'btn red';
+      clearBtn.textContent = 'Clear All Favorites';
+      clearBtn.addEventListener('click', () => {
+        localStorage.removeItem("favorites");
+        renderFavorites();
+      });
+  
+      // Insert after the favorites container
+      favoritesContainer.parentNode.insertBefore(clearBtn, favoritesContainer.nextSibling);
+    } else if (favorites.length === 0 && existingClearBtn) {
+      existingClearBtn.remove(); // Remove if no favorites left
+    }
+  }
+  
+
+  function deleteFavorite(index) {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    favorites.splice(index, 1); // Remove by index
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    renderFavorites(); // Re-render UI
   }
 
   // ------------------------------
