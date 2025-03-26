@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const favoritesAPI = 'http://localhost:3000/favorites'; // ✅ Added
   const dailyDoseBtn = document.querySelector('.btn.white');
   const detailSection = document.querySelector('.detail');
-  const inspireBtn = document.getElementById('inspirationBtn');
+  const inspireBtn = document.getElementById('inspire-btn');
   const inspirationResult = document.getElementById('inspirationResult');
   const categoryFilter = document.getElementById('categoryFilter');
   const messages = [
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderQuoteDetail(quote) {
     detailSection.innerHTML = `
-      <img src="https://via.placeholder.com/600x200" alt="Quote Detail">
+      <img src="./images/Trial.jpg" alt="Quote Detail">
       <p class="quote-text">"${quote.text}"</p>
       <p class="quote-author">- ${quote.author}</p>
       <div class="hero-buttons">
@@ -151,6 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(err => console.error('Failed to save to server:', err));
   }
+
+  function saveToFavorites(quote) {
+    if (!favorites.some(fav => fav.text === quote.text)) {
+    saveToServerFavorites(quote);
+  }
+}  
 
   // ✅ NEW: Render favorites from json-server
   function renderFavorites() {
