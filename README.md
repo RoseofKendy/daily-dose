@@ -1,63 +1,70 @@
+
 # 🌞 Daily Dose
 
-Created by: Njue Sharon Kendi
-
-Project Type: Single Page Application (SPA)  
-Tech Stack: HTML, CSS, JavaScript, JSON Server
+**Created by:** Njue Sharon Kendi  
+**Project Type:** Single Page Application (SPA)  
+**Tech Stack:** HTML, CSS, JavaScript, JSON Server
 
 ---
 
-📌 Description
+## 📌 Description
 
 **Daily Dose** is a motivational quote web app that gives users a daily boost of inspiration through curated quotes. The app features:
 
-- A hero section with a “Get Daily Dose” button
-- Quote categories like Love, Self and Work.
-- An Inspiration Meter to check your vibe.
-- A Favorites section for saved quotes.
-- Interactive UI with animations and hover effects.
-- Future support for API-based quote generation and localStorage-based favorites.
+- 🎯 A hero section with a “Get Daily Dose” button  
+- 🗂️ Quote categories like Love, Wisdom, and Motivation  
+- 🔋 An Inspiration Meter to check your vibe  
+- ❤️ A Favorites section for saved quotes  
+- 🎨 Interactive UI with animations and hover effects  
+- 🔧 JSON Server for storing quote data  
+- 💾 LocalStorage support for persisting user favorites  
+- 🚫 Duplicate prevention in the favorites list  
+- 🧠 Future support for API-based quote generation
+
+
 
 🛠️ How to Run the Project Locally
 
-1. Clone the repository:
-     bash
-   git clone https://github.com/RoseofKendy/daily-dose (https)
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/RoseofKendy/daily-dose.git (https)
    git clone git@github.com:RoseofKendy/daily-dose.git (SSH)
    cd daily-dose
+   ```
 
-2. Start the JSON Server
-    bash
-  npm install -g json-server
-  json-server --watch db.json
+2. **Start the JSON Server**
+   ```bash
+   npm install -g json-server
+   json-server --watch db.json
+   ```
 
-3. Launch index.html on browser or use Live server (VS Code extension)
+3. **Open the App**
+   - Open `index.html` in your browser  
+   - Or use Live Server in VS Code for auto-refresh
 
+---
 
-🚀 Features Implemented So Far
-HTML structure and content layout
+## 🚀 Features Implemented So Far
 
-Custom styling using CSS
+- ✅ Full HTML structure and semantic layout  
+- ✅ Custom styling using CSS (responsive and themed)  
+- ✅ JavaScript interactivity (clicks, hover, UI feedback)  
+- ✅ Quote categories display with images and sample quotes  
+- ✅ Inspiration Meter with randomized positive messages  
+- ✅ Static and dynamic Favorites section  
+- ✅ LocalStorage support to persist user favorites  
+- ✅ Duplicate prevention logic when saving to favorites  
+- ✅ JSON Server setup with over 100 quotes (`db.json`)  
+- ✅ Basic structure for category-based quote rendering
 
-JavaScript interactivity (hover effects, click events)
+---
 
-Static "Inspiration Meter" logic
+## 📌 To-Do
 
-Quote categories display
-
-JSON server setup with sample quotes (db.json)
-
-UI buttons for fetching quotes and saving favorites (logic to be completed)
-
-📌 To-Do
- Fetch quotes from db.json using fetch()
-
- Save favorite quotes to localStorage
-
- Dynamically render favorites section
-
- Implement quote generator based on selected category
-
- Clean up UI bugs and optimize code
-
-
+- [ ] Fetch and display quotes dynamically from `db.json`  
+- [ ] Implement quote generator based on selected category  
+- [ ] Dynamically render favorites from localStorage  
+- [ ] Add feature to remove quotes from favorites  
+- [ ] Integrate ZenQuotes API or similar for live content  
+- [ ] Polish the UI and fix minor layout bugs  
+- [ ] Add animations for quote transitions  
