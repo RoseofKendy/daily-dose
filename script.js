@@ -14,6 +14,28 @@ document.addEventListener('DOMContentLoaded', () => {
     "Absolutely unstoppable!"
   ];
 
+  const categoryFilter = document.getElementById('categoryFilter');
+
+if (categoryFilter) {
+  categoryFilter.addEventListener('change', () => {
+    const selectedCategory = categoryFilter.value;
+
+    fetch(quoteAPI)
+      .then(response => response.json())
+      .then(quotes => {
+        const filteredQuotes = selectedCategory
+          ? quotes.filter(quote => quote.category === selectedCategory)
+          : quotes;
+
+        renderQuoteList(filteredQuotes);
+      })
+      .catch(error => {
+        console.error('Error filtering quotes:', error);
+      });
+  });
+}
+
+
   // ------------------------------
   // Category Cards Hover Effect
   // ------------------------------
@@ -65,6 +87,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function renderQuoteList(quotes) {
+    let quoteSection = document.getElementById('quote-list');
+    if (!quoteSection) {
+      quoteSection = document.createElement('div');
+      quoteSection.id = 'quote-list';
+      quoteSection.className = 'section';
+      document.body.insertBefore(quoteSection, document.querySelector('footer'));
+    }
+  
+    quoteSection.innerHTML = '<h2>✨ Filtered Quotes</h2>';
+  
+    if (quotes.length === 0) {
+      quoteSection.innerHTML += '<p>No quotes found in this category.</p>';
+      return;
+    }
+  
+    quotes.forEach(quote => {
+      const quoteCard = document.createElement('div');
+      quoteCard.className = 'card';
+      quoteCard.innerHTML = `
+        <h3>${quote.author || 'Unknown Author'}</h3>
+        <p>"${quote.text}"</p>
+        <small><em>Category: ${quote.category}</em></small>
+      `;
+      quoteSection.appendChild(quoteCard);
+    });
+  }
+  
   // ------------------------------
   // Show Quote Below Hero Section
   // ------------------------------
