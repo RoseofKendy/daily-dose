@@ -1,608 +1,607 @@
 {
     "quotes": [
       {
-        "id": 1,
+        "id": "1",
         "text": "Believe in yourself and all that you are.",
         "author": "Christian D. Larson",
         "category": "self"
       },
       {
-        "id": 2,
+        "id": "2",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 3,
+        "id": "3",
         "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
         "author": "Lao Tzu",
         "category": "love"
       },
       {
-        "id": 4,
+        "id": "4",
         "text": "Love is when the other person's happiness is more important than your own.",
         "author": "H. Jackson Brown Jr.",
         "category": "love"
       },
       {
-        "id": 5,
+        "id": "5",
         "text": "Choose a job you love, and you will never have to work a day in your life.",
         "author": "Confucius",
         "category": "work"
       },
       {
-        "id": 6,
+        "id": "6",
         "text": "It's not whether you get knocked down, it's whether you get up.",
         "author": "Vince Lombardi",
         "category": "self"
       },
       {
-        "id": 7,
+        "id": "7",
         "text": "The only person you are destined to become is the person you decide to be.",
         "author": "Ralph Waldo Emerson",
         "category": "self"
       },
       {
-        "id": 8,
+        "id": "8",
         "text": "Be yourself; everyone else is already taken.",
         "author": "Oscar Wilde",
         "category": "self"
       },
       {
-        "id": 9,
+        "id": "9",
         "text": "The best thing to hold onto in life is each other.",
         "author": "Audrey Hepburn",
         "category": "love"
       },
       {
-        "id": 10,
+        "id": "10",
         "text": "Love recognizes no barriers.",
         "author": "Maya Angelou",
         "category": "love"
       },
       {
-        "id": 11,
+        "id": "11",
         "text": "Opportunities don't happen. You create them.",
         "author": "Chris Grosser",
         "category": "work"
       },
       {
-        "id": 12,
+        "id": "12",
         "text": "Success is the result of preparation, hard work, and learning from failure.",
         "author": "Colin Powell",
         "category": "work"
       },
       {
-        "id": 13,
+        "id": "13",
         "text": "The only person you are destined to become is the person you decide to be.",
         "author": "Ralph Waldo Emerson",
         "category": "self"
       },
       {
-        "id": 14,
+        "id": "14",
         "text": "You are enough just as you are.",
         "author": "Meghan Markle",
         "category": "self"
       },
       {
-        "id": 15,
+        "id": "15",
         "text": "Pleasure in the job puts perfection in the work.",
         "author": "Aristotle",
         "category": "work"
       },
       {
-        "id": 16,
+        "id": "16",
         "text": "Don't watch the clock; do what it does. Keep going.",
         "author": "Sam Levenson",
         "category": "work"
       },
       {
-        "id": 17,
+        "id": "17",
         "text": "No one can make you feel inferior without your consent.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 18,
+        "id": "18",
         "text": "Act as if what you do makes a difference. It does.",
         "author": "William James",
         "category": "self"
       },
       {
-        "id": 19,
+        "id": "19",
         "text": "We accept the love we think we deserve.",
         "author": "Stephen Chbosky",
         "category": "love"
       },
       {
-        "id": 20,
+        "id": "20",
         "text": "Success is the result of preparation, hard work, and learning from failure.",
         "author": "Colin Powell",
         "category": "work"
       },
       {
-        "id": 21,
+        "id": "21",
         "text": "No one can make you feel inferior without your consent.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 22,
+        "id": "22",
         "text": "Success usually comes to those who are too busy to be looking for it.",
         "author": "Henry David Thoreau",
         "category": "work"
       },
       {
-        "id": 23,
+        "id": "23",
         "text": "With the new day comes new strength and new thoughts.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 24,
+        "id": "24",
         "text": "No one can make you feel inferior without your consent.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 25,
+        "id":"25",
         "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
         "author": "Lao Tzu",
         "category": "love"
       },
       {
-        "id": 26,
+        "id": "26",
         "text": "Success usually comes to those who are too busy to be looking for it.",
         "author": "Henry David Thoreau",
         "category": "work"
       },
       {
-        "id": 27,
+        "id": "27",
         "text": "To love and be loved is to feel the sun from both sides.",
         "author": "David Viscott",
         "category": "love"
       },
       {
-        "id": 28,
+        "id": "28",
         "text": "Act as if what you do makes a difference. It does.",
         "author": "William James",
         "category": "self"
       },
       {
-        "id": 29,
+        "id": "29",
         "text": "Love is composed of a single soul inhabiting two bodies.",
         "author": "Aristotle",
         "category": "love"
       },
       {
-        "id": 30,
+        "id": "30",
         "text": "Pleasure in the job puts perfection in the work.",
         "author": "Aristotle",
         "category": "work"
       },
       {
-        "id": 31,
+        "id": "31",
         "text": "To love and be loved is to feel the sun from both sides.",
         "author": "David Viscott",
         "category": "love"
       },
       {
-        "id": 32,
+        "id": "32",
         "text": "Act as if what you do makes a difference. It does.",
         "author": "William James",
         "category": "self"
       },
       {
-        "id": 33,
+        "id": "33",
         "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
         "author": "Lao Tzu",
         "category": "love"
       },
       {
-        "id": 34,
+        "id": "34",
         "text": "Act as if what you do makes a difference. It does.",
         "author": "William James",
         "category": "self"
       },
       {
-        "id": 35,
+        "id": "35",
         "text": "At the touch of love everyone becomes a poet.",
         "author": "Plato",
         "category": "love"
       },
       {
-        "id": 36,
+        "id": "36",
         "text": "Dreams don't work unless you do.",
         "author": "John C. Maxwell",
         "category": "work"
       },
       {
-        "id": 37,
+        "id": "37",
         "text": "With the new day comes new strength and new thoughts.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 38,
+        "id": "38",
         "text": "Believe in yourself and all that you are.",
         "author": "Christian D. Larson",
         "category": "self"
       },
       {
-        "id": 39,
+        "id": "39",
         "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
         "author": "Lao Tzu",
         "category": "love"
       },
       {
-        "id": 40,
+        "id": "40",
         "text": "The only person you are destined to become is the person you decide to be.",
         "author": "Ralph Waldo Emerson",
         "category": "self"
       },
       {
-        "id": 41,
+        "id": "41",
         "text": "Believe in yourself and all that you are.",
         "author": "Christian D. Larson",
         "category": "self"
       },
       {
-        "id": 42,
+        "id": "42",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 43,
+        "id": "43",
         "text": "Do the hard jobs first. The easy jobs will take care of themselves.",
         "author": "Dale Carnegie",
         "category": "work"
       },
       {
-        "id": 44,
+        "id": "44",
         "text": "Success is the result of preparation, hard work, and learning from failure.",
         "author": "Colin Powell",
         "category": "work"
       },
       {
-        "id": 45,
+        "id": "45",
         "text": "You alone are enough. You have nothing to prove to anybody.",
         "author": "Maya Angelou",
         "category": "self"
       },
       {
-        "id": 46,
+        "id": "46",
         "text": "Hard work beats talent when talent doesn't work hard.",
         "author": "Tim Notke",
         "category": "work"
       },
       {
-        "id": 47,
+        "id": "47",
         "text": "No one can make you feel inferior without your consent.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 48,
+        "id": "48",
         "text": "You are enough just as you are.",
         "author": "Meghan Markle",
         "category": "self"
       },
       {
-        "id": 49,
+        "id": "49",
         "text": "It's not whether you get knocked down, it's whether you get up.",
         "author": "Vince Lombardi",
         "category": "self"
       },
       {
-        "id": 50,
+        "id": "50",
         "text": "We accept the love we think we deserve.",
         "author": "Stephen Chbosky",
         "category": "love"
       },
       {
-        "id": 51,
+        "id": "51",
         "text": "The only person you are destined to become is the person you decide to be.",
         "author": "Ralph Waldo Emerson",
         "category": "self"
       },
       {
-        "id": 52,
+        "id": "52",
         "text": "Hard work beats talent when talent doesn't work hard.",
         "author": "Tim Notke",
         "category": "work"
       },
       {
-        "id": 53,
+        "id": "53",
         "text": "Pleasure in the job puts perfection in the work.",
         "author": "Aristotle",
         "category": "work"
       },
       {
-        "id": 54,
+        "id": "54",
         "text": "It's not whether you get knocked down, it's whether you get up.",
         "author": "Vince Lombardi",
         "category": "self"
       },
       {
-        "id": 55,
+        "id": "55",
         "text": "Love is when the other person's happiness is more important than your own.",
         "author": "H. Jackson Brown Jr.",
         "category": "love"
       },
       {
-        "id": 56,
+        "id": "56",
         "text": "The best thing to hold onto in life is each other.",
         "author": "Audrey Hepburn",
         "category": "love"
       },
       {
-        "id": 57,
+        "id": "57",
         "text": "Dreams don't work unless you do.",
         "author": "John C. Maxwell",
         "category": "work"
       },
       {
-        "id": 58,
+        "id": "58",
         "text": "To love and be loved is to feel the sun from both sides.",
         "author": "David Viscott",
         "category": "love"
       },
       {
-        "id": 59,
+        "id": "59",
         "text": "Love is when the other person's happiness is more important than your own.",
         "author": "H. Jackson Brown Jr.",
         "category": "love"
       },
       {
-        "id": 60,
+        "id": "60",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 61,
+        "id": "61",
         "text": "The best thing to hold onto in life is each other.",
         "author": "Audrey Hepburn",
         "category": "love"
       },
       {
-        "id": 62,
+        "id": "62",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 63,
+        "id": "63",
         "text": "Success is the result of preparation, hard work, and learning from failure.",
         "author": "Colin Powell",
         "category": "work"
       },
       {
-        "id": 64,
+        "id": "64",
         "text": "With the new day comes new strength and new thoughts.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 65,
+        "id": "65",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 66,
+        "id": "66",
         "text": "Do the hard jobs first. The easy jobs will take care of themselves.",
         "author": "Dale Carnegie",
         "category": "work"
       },
       {
-        "id": 67,
+        "id": "67",
         "text": "Pleasure in the job puts perfection in the work.",
         "author": "Aristotle",
         "category": "work"
       },
       {
-        "id": 68,
+        "id": "68",
         "text": "Act as if what you do makes a difference. It does.",
         "author": "William James",
         "category": "self"
       },
       {
-        "id": 69,
+        "id": "69",
         "text": "Believe in yourself and all that you are.",
         "author": "Christian D. Larson",
         "category": "self"
       },
       {
-        "id": 70,
+        "id": "70",
         "text": "At the touch of love everyone becomes a poet.",
         "author": "Plato",
         "category": "love"
       },
       {
-        "id": 71,
+        "id": "71",
         "text": "Dreams don't work unless you do.",
         "author": "John C. Maxwell",
         "category": "work"
       },
       {
-        "id": 72,
+        "id": "72",
         "text": "To love and be loved is to feel the sun from both sides.",
         "author": "David Viscott",
         "category": "love"
       },
       {
-        "id": 73,
+        "id": "73",
         "text": "Love is composed of a single soul inhabiting two bodies.",
         "author": "Aristotle",
         "category": "love"
       },
       {
-        "id": 74,
+        "id": "74",
         "text": "Love all, trust a few, do wrong to none.",
         "author": "William Shakespeare",
         "category": "love"
       },
       {
-        "id": 75,
+        "id": "75",
         "text": "Choose a job you love, and you will never have to work a day in your life.",
         "author": "Confucius",
         "category": "work"
       },
       {
-        "id": 76,
+        "id": "76",
         "text": "Love recognizes no barriers.",
         "author": "Maya Angelou",
         "category": "love"
       },
       {
-        "id": 77,
+        "id": "77",
         "text": "You alone are enough. You have nothing to prove to anybody.",
         "author": "Maya Angelou",
         "category": "self"
       },
       {
-        "id": 78,
+        "id": "78",
         "text": "Where there is love there is life.",
         "author": "Mahatma Gandhi",
         "category": "love"
       },
       {
-        "id": 79,
+        "id": "79",
         "text": "Don't watch the clock; do what it does. Keep going.",
         "author": "Sam Levenson",
         "category": "work"
       },
       {
-        "id": 80,
+        "id": "80",
         "text": "At the touch of love everyone becomes a poet.",
         "author": "Plato",
         "category": "love"
       },
       {
-        "id": 81,
+        "id": "81",
         "text": "Success usually comes to those who are too busy to be looking for it.",
         "author": "Henry David Thoreau",
         "category": "work"
       },
       {
-        "id": 82,
+        "id": "82",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 83,
+        "id": "83",
         "text": "Success usually comes to those who are too busy to be looking for it.",
         "author": "Henry David Thoreau",
         "category": "work"
       },
       {
-        "id": 84,
+        "id": "84",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi",
         "category": "work"
       },
       {
-        "id": 85,
+        "id": "85",
         "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
         "author": "Lao Tzu",
         "category": "love"
       },
       {
-        "id": 86,
+        "id": "86",
         "text": "Love is composed of a single soul inhabiting two bodies.",
         "author": "Aristotle",
         "category": "love"
       },
       {
-        "id": 87,
+        "id": "87",
         "text": "Love is composed of a single soul inhabiting two bodies.",
         "author": "Aristotle",
         "category": "love"
       },
       {
-        "id": 88,
+        "id": "88",
         "text": "Dreams don't work unless you do.",
         "author": "John C. Maxwell",
         "category": "work"
       },
       {
-        "id": 89,
+        "id": "89",
         "text": "You are enough just as you are.",
         "author": "Meghan Markle",
         "category": "self"
       },
       {
-        "id": 90,
+        "id": "90",
         "text": "It's not whether you get knocked down, it's whether you get up.",
         "author": "Vince Lombardi",
         "category": "self"
       },
       {
-        "id": 91,
+        "id": "91",
         "text": "Act as if what you do makes a difference. It does.",
         "author": "William James",
         "category": "self"
       },
       {
-        "id": 92,
+        "id": "92",
         "text": "To love and be loved is to feel the sun from both sides.",
         "author": "David Viscott",
         "category": "love"
       },
       {
-        "id": 93,
+        "id": "93",
         "text": "Success usually comes to those who are too busy to be looking for it.",
         "author": "Henry David Thoreau",
         "category": "work"
       },
       {
-        "id": 94,
+        "id": "94",
         "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
         "author": "Lao Tzu",
         "category": "love"
       },
       {
-        "id": 95,
+        "id": "95",
         "text": "Choose a job you love, and you will never have to work a day in your life.",
         "author": "Confucius",
         "category": "work"
       },
       {
-        "id": 96,
+        "id": "96",
         "text": "At the touch of love everyone becomes a poet.",
         "author": "Plato",
         "category": "love"
       },
       {
-        "id": 97,
+        "id": "97",
         "text": "To love and be loved is to feel the sun from both sides.",
         "author": "David Viscott",
         "category": "love"
       },
       {
-        "id": 98,
+        "id": "98",
         "text": "Success is the result of preparation, hard work, and learning from failure.",
         "author": "Colin Powell",
         "category": "work"
       },
       {
-        "id": 99,
+        "id": "99",
         "text": "No one can make you feel inferior without your consent.",
         "author": "Eleanor Roosevelt",
         "category": "self"
       },
       {
-        "id": 100,
+        "id": "100",
         "text": "Love is when the other person's happiness is more important than your own.",
         "author": "H. Jackson Brown Jr.",
         "category": "love"
       }
     ],
     "favorites": [
-      
+
     ]
   }
-  
