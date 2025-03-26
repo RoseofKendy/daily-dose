@@ -137,78 +137,91 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ✅ NEW: Save to Favorites using json-server
-  function saveToFavorites(quote) {
-    if (favorites.find(f => f.text === quote.text)) return;
-
+  function saveToServerFavorites(quote) {
     fetch(favoritesAPI, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(quote)
     })
-      .then(res => res.json())
-      .then(newFavorite => {
-        favorites.push(newFavorite);
-        renderFavorites();
-      });
+      .then(response => response.json())
+      .then(() => {
+        renderFavorites(); // Refresh the list
+      })
+      .catch(err => console.error('Failed to save to server:', err));
   }
 
   // ✅ NEW: Render favorites from json-server
   function renderFavorites() {
     const favoritesContainer = document.querySelector('.grid');
-    if (!favoritesContainer) return;
+  if (!favoritesContainer) return;
 
-    favoritesContainer.innerHTML = ''; // Clear old
+  fetch(favoritesAPI)
+    .then(res => res.json())
+    .then(favorites => {
+      favoritesContainer.innerHTML = '';
 
-    favorites.forEach(fav => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="https://via.placeholder.com/300x200" alt="Favorite Quote">
-        <h3>${fav.author || 'Unknown Author'}</h3>
-        <p>"${fav.text}"</p>
-        <button class="delete-btn btn small" data-id="${fav.id}">Delete</button>
-      `;
+      favorites.forEach(fav => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="https://via.placeholder.com/300x200" alt="Favorite Quote">
+          <h3>${fav.author || 'Unknown Author'}</h3>
+          <p>"${fav.text}"</p>
+          <button class="delete-btn btn small" data-id="${fav.id}">Delete</button>
+        `;
 
-      card.querySelector('.delete-btn').addEventListener('click', (e) => {
-        const id = e.target.dataset.id;
-        deleteFavorite(id);
+        card.querySelector('.delete-btn').addEventListener('click', (e) => {
+          const id = e.target.dataset.id;
+          deleteFavorite(id);
+        });
+
+        favoritesContainer.appendChild(card);
       });
 
-      favoritesContainer.appendChild(card);
-    });
+      // Clear all button
+      let existingClearBtn = document.getElementById('clearFavoritesBtn');
+      if (!existingClearBtn && favorites.length > 0) {
+        const clearBtn = document.createElement('button');
+        clearBtn.id = 'clearFavoritesBtn';
+        clearBtn.className = 'btn red';
+        clearBtn.textContent = 'Clear All Favorites';
+        clearBtn.addEventListener('click', () => clearAllFavorites());
 
-    let existingClearBtn = document.getElementById('clearFavoritesBtn');
-    if (!existingClearBtn && favorites.length > 0) {
-      const clearBtn = document.createElement('button');
-      clearBtn.id = 'clearFavoritesBtn';
-      clearBtn.className = 'btn red';
-      clearBtn.textContent = 'Clear All Favorites';
-      clearBtn.addEventListener('click', clearAllFavorites); // ✅ updated
-
-      favoritesContainer.parentNode.insertBefore(clearBtn, favoritesContainer.nextSibling);
-    } else if (favorites.length === 0 && existingClearBtn) {
-      existingClearBtn.remove();
-    }
+        favoritesContainer.parentNode.insertBefore(clearBtn, favoritesContainer.nextSibling);
+      } else if (favorites.length === 0 && existingClearBtn) {
+        existingClearBtn.remove();
+      }
+    })
+    .catch(err => console.error('Error loading favorites:', err));
   }
 
   // ✅ NEW: Delete a favorite from json-server
   function deleteFavorite(id) {
-    fetch(`${favoritesAPI}/${id}`, { method: "DELETE" })
+    fetch(`${favoritesAPI}/${id}`, {
+      method: 'DELETE'
+    })
       .then(() => {
-        favorites = favorites.filter(f => f.id != id);
         renderFavorites();
-      });
+      })
+      .catch(err => console.error('Failed to delete favorite:', err));
   }
 
   // ✅ NEW: Clear all favorites from server
   function clearAllFavorites() {
-    Promise.all(favorites.map(f =>
-      fetch(`${favoritesAPI}/${f.id}`, { method: "DELETE" })
-    )).then(() => {
-      favorites = [];
-      renderFavorites();
-    });
+    fetch(favoritesAPI)
+      .then(res => res.json())
+      .then(favorites => {
+        const deletePromises = favorites.map(fav =>
+          fetch(`${favoritesAPI}/${fav.id}`, { method: 'DELETE' })
+        );
+  
+        Promise.all(deletePromises).then(() => renderFavorites());
+      })
+      .catch(err => console.error('Error clearing all favorites:', err));
   }
+  
 
   // ✅ NEW: Load favorites from json-server on page load
   function loadFavoritesFromServer() {
