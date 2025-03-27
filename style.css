@@ -1,0 +1,640 @@
+/* ===== Color Palette ===== */
+:root {
+    /* Teal to Fuchsia Gradient */
+    --teal: #008080;
+    --blue-teal: #2d7d9a;
+    --indigo: #4b5fdb;
+    --purple: #7e5bef;
+    --violet: #9d4edd;
+    --fuchsia: #c13cbf;
+    
+    /* Neutrals */
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #495057;
+    --black: #212529;
+    
+    /* Utility Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+  }
+  
+  /* ===== Base Styles ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1, h2, h3 {
+    color: var(--indigo);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* ===== Layout Sections ===== */
+  .header {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--teal), var(--fuchsia));
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* ===== Hero Section ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-teal), var(--purple));
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .hero-text {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .alert {
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  /* ===== Quote Display Sections ===== */
+  .detail, .filtered-quote-display {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--violet);
+  }
+  
+  #quote-text, #filtered-quote-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--dark-gray);
+    line-height: 1.8;
+  }
+  
+  #quote-author, #filtered-quote-author {
+    text-align: right;
+    font-weight: bold;
+    color: var(--indigo);
+  }
+  
+  /* ===== Category Cards ===== */
+  .category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .category-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--medium-gray);
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--violet);
+  }
+  
+  .category-card h3 {
+    color: var(--purple);
+    margin: 1rem 0 0.5rem;
+  }
+  
+  .description {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+  }
+  
+  .sample-quote {
+    font-style: italic;
+    color: var(--indigo);
+    margin-top: 0.5rem;
+  }
+  
+  /* ===== Filter Section ===== */
+  .filter-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .filter-section label {
+    font-weight: bold;
+    color: var(--indigo);
+  }
+  
+  /* ===== Favorites Section ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--medium-gray);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .card h3 {
+    margin: 1rem 0 0.5rem;
+    color: var(--violet);
+  }
+  
+  .card p {
+    font-style: italic;
+    color: var(--dark-gray);
+  }
+
+  /* ===== Horizontal Scrolling Favorites ===== */
+.favorites-container {
+    position: relative; /* For absolute positioning of arrows */
+    margin: 1.5rem 0;
+  }
+  
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar */
+  }
+  
+  .grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+  
+  .card {
+    scroll-snap-align: start;
+    flex: 0 0 300px; /* Fixed width cards, no stretching */
+    min-height: 200px; /* Consistent card height */
+  }
+  
+  /* Navigation Arrows */
+  .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--purple);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  .scroll-arrow:hover {
+    opacity: 1;
+  }
+  
+  .scroll-arrow.left {
+    left: -20px;
+  }
+  
+  .scroll-arrow.right {
+    right: -20px;
+  }
+  
+  .scroll-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+  /* ===== Inspiration Meter ===== */
+  .inspiration-meter {
+    background: linear-gradient(135deg, var(--purple), var(--fuchsia));
+    color: white;
+  }
+  
+  .inspiration-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .result-container {
+    background: rgba(255,255,255,0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    color: var(--dark-gray);
+    display: none;
+  }
+  
+  .meter-visual {
+    height: 10px;
+    background: var(--medium-gray);
+    border-radius: 5px;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+  
+  .meter-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--teal), var(--fuchsia));
+    border-radius: 5px;
+    transition: width 1s ease-out;
+  }
+  
+  .result-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .result-tip {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  /* ===== Buttons ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+  }
+  
+  .btn.white {
+    background: white;
+    color: var(--indigo);
+  }
+  
+  .btn.dark {
+    background: var(--indigo);
+    color: white;
+  }
+  
+  .btn.light {
+    background: var(--medium-gray);
+    color: var(--dark-gray);
+  }
+  
+  .btn.red {
+    background: var(--danger);
+    color: white;
+  }
+  
+  /* Special button for inspiration meter */
+  .inspiration-meter .btn.white {
+    background: white;
+    color: var(--fuchsia);
+  }
+  
+  /* Button with spinner */
+  .spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: currentColor;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  
+  /* ===== Responsive Design ===== */
+  @media (max-width: 768px) {
+    .hero-buttons {
+      flex-direction: column;
+    }
+    
+    .category-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .filter-section {
+      padding: 1rem;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .result-container {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* Hide scrollbar but keep functionality */
+html {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For IE and Edge */
+  }
+  
+  html::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  
+  body {
+    -ms-overflow-style: none; /* Additional IE/Edge support */
+    scrollbar-width: none; /* Additional Firefox support */
+    overflow-y: scroll; /* Ensures scroll space is always reserved */
+  }
+
+  /* ===== Mobile Responsiveness (Up to 768px) ===== */
+@media (max-width: 768px) {
+    /* Base Adjustments */
+    body {
+      padding: 15px;
+      font-size: 16px;
+    }
+  
+    /* Header */
+    .header {
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+    }
+    
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  
+    /* Hero Section */
+    .hero {
+      padding: 1.5rem 1rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  
+    /* Category Cards */
+    .category-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .category-card {
+      padding: 1.25rem;
+    }
+  
+    /* Filter Section */
+    .filter-section {
+      padding: 1rem;
+      gap: 0.75rem;
+    }
+  
+    select, .btn {
+      width: 100%;
+      padding: 0.8rem;
+    }
+  
+    /* Quote Displays */
+    .detail, .filtered-quote-display {
+      padding: 1.25rem;
+    }
+  
+    #quote-text, #filtered-quote-text {
+      font-size: 1.1rem;
+    }
+  
+    /* Favorites Grid */
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  
+    /* Inspiration Meter */
+    .inspiration-meter {
+      padding: 1.5rem 1rem;
+    }
+  
+    /* Buttons */
+    .btn {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  
+    /* Footer */
+    .footer {
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+  
+    /* Utility Classes for Mobile */
+    .mobile-stack {
+      flex-direction: column !important;
+    }
+  
+    .mobile-full-width {
+      width: 100% !important;
+    }
+  
+    .mobile-text-center {
+      text-align: center !important;
+    }
+  
+    /* Hide elements if needed */
+    .mobile-hide {
+      display: none !important;
+    }
+  }
+  
+  /* ===== Smaller Phones (Up to 480px) ===== */
+  @media (max-width: 480px) {
+    /* Even more compact styles */
+    body {
+      padding: 10px;
+    }
+  
+    .header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .section, .detail, .filtered-quote-display {
+      padding: 1rem;
+    }
+  
+    /* Adjust font sizes */
+    h2 {
+      font-size: 1.3rem;
+    }
+  
+    h3 {
+      font-size: 1.1rem;
+    }
+  
+    /* Inspiration meter adjustments */
+    .inspiration-container {
+      padding: 0 0.5rem;
+    }
+  
+    .result-text {
+      font-size: 1rem;
+    }
+  
+    /* Category card images */
+    .category-card img {
+      max-height: 150px;
+      object-fit: cover;
+    }
+  }
+  
+  /* ===== Mobile-Specific Interactions ===== */
+  /* Prevent zoom on form inputs */
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px; /* Prevent iOS zoom */
+    }
+  }
+  
+  /* Touch target sizes */
+  @media (max-width: 768px) {
+    .btn, [role="button"] {
+      min-height: 44px; /* Apple recommended minimum */
+      min-width: 44px;
+    }
+  }
+  
+  /* Hide hover effects on touch devices */
+  @media (hover: none) {
+    .category-card:hover, .btn:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+    /* Mobile touch scrolling indicators */
+    @media (max-width: 768px) {
+        .grid {
+          padding-bottom: 1.5rem; /* Space for scroll indicator */
+        }
+        
+        /* Optional: Add gradient fade to indicate scrollability */
+        .favorites-container {
+          mask-image: linear-gradient(
+            to right, 
+            transparent, 
+            black 20px, 
+            black 90%, 
+            transparent
+          );
+          -webkit-mask-image: linear-gradient(
+            to right, 
+            transparent, 
+            black 20px, 
+            black 90%, 
+            transparent
+          );
+        }
+      }
