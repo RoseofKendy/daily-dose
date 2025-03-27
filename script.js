@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const favoritesAPI = 'http://localhost:3000/favorites';
   
   // DOM elements
+  const themeToggle = document.getElementById('themeToggle');
   const dailyDoseBtn = document.querySelector('.btn.white');
   const saveToFavoritesBtn = document.querySelector('.btn.dark');
   const categoryFilter = document.getElementById('categoryFilter');
@@ -95,6 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFavoritesFromServer();
     setupEventListeners();
     setupScrollArrows();
+    const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateToggleIcon(savedTheme);
   }
 
   // Set up all event listeners
@@ -102,6 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Daily dose button - gets random quote from any category
     if (dailyDoseBtn) {
       dailyDoseBtn.addEventListener('click', fetchRandomQuote);
+    }
+  
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
     }
 
     // Save to favorites button (main button)
@@ -130,6 +138,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (clearFavoritesBtn) {
       clearFavoritesBtn.addEventListener('click', clearAllFavorites);
     }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateToggleIcon(newTheme);
+  }
+  
+  function updateToggleIcon(theme) {
+    const icon = themeToggle.querySelector('.toggle-icon');
+    icon.textContent = theme === 'dark' ? '☀️' : '🌙';
   }
 
   // Fetch all quotes from API
