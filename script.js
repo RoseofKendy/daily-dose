@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const favoritesGrid = document.getElementById('favorites-grid');
   const filteredQuoteText = document.getElementById('filtered-quote-text');
   const filteredQuoteAuthor = document.getElementById('filtered-quote-author');
+  const favoritesContainer = document.querySelector('.container');
+  const scrollLeftBtn = document.createElement('button');
+  const scrollRightBtn = document.createElement('button');
   const inspireBtn = document.getElementById('inspire-btn');
   const inspirationResult = document.getElementById('inspirationResult');
   const inspirationTip = document.getElementById('inspirationTip');
@@ -91,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadQuotes();
     loadFavoritesFromServer();
     setupEventListeners();
+    setupScrollArrows();
   }
 
   // Set up all event listeners
@@ -326,6 +330,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 }
 
+function setupScrollArrows() {
+  if (!favoritesContainer) return;
+  
+  favoritesContainer.classList.add('favorites-container');
+  
+  // Left arrow
+  scrollLeftBtn.className = 'scroll-arrow left';
+  scrollLeftBtn.innerHTML = '&larr;';
+  scrollLeftBtn.addEventListener('click', () => {
+    favoritesGrid.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+  
+  // Right arrow
+  scrollRightBtn.className = 'scroll-arrow right';
+  scrollRightBtn.innerHTML = '&rarr;';
+  scrollRightBtn.addEventListener('click', () => {
+    favoritesGrid.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+  
+  favoritesContainer.appendChild(scrollLeftBtn);
+  favoritesContainer.appendChild(scrollRightBtn);
+  
+  // Hide arrows when at scroll extremes
+  favoritesGrid.addEventListener('scroll', () => {
+    const { scrollLeft, scrollWidth, clientWidth } = favoritesGrid;
+    scrollLeftBtn.disabled = scrollLeft === 0;
+    scrollRightBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 1;
+  });
+}
 
   // Initialize the application
   init();
