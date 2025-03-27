@@ -99,14 +99,15 @@
     transform: scale(1.1);
   }
   
-  /* Dark Mode Styles */
-  [data-theme="dark"] {
-    --text-dark: #e0e0e0;
+ /* ===== Dark Mode Text Visibility Fixes ===== */
+[data-theme="dark"] {
+    --text-dark: #e0e0e0;  /* Light text for dark background */
     --text-light: #b0b0b0;
     --bg-light: #121212;
     --dark-gray: #2a2a2a;
     --medium-gray: #1e1e1e;
     --white: #1e1e1e;
+    --dropdown-text: #ffffff; /* Added for dropdown text */
   }
   
   [data-theme="dark"] body {
@@ -114,33 +115,103 @@
     color: var(--text-dark);
   }
   
-  [data-theme="dark"] .section,
-  [data-theme="dark"] .detail,
-  [data-theme="dark"] .filtered-quote-display,
-  [data-theme="dark"] .card {
-    background-color: var(--dark-gray);
+  /* Fix all text elements in dark mode */
+  [data-theme="dark"] h1,
+  [data-theme="dark"] h2,
+  [data-theme="dark"] h3,
+  [data-theme="dark"] h4,
+  [data-theme="dark"] h5,
+  [data-theme="dark"] h6,
+  [data-theme="dark"] p,
+  [data-theme="dark"] span,
+  [data-theme="dark"] div,
+  [data-theme="dark"] li {
     color: var(--text-dark);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
   
+  /* Fix dropdown menu text in both modes */
+  select, 
+  select option {
+    color: var(--black); /* Default light mode color */
+    background-color: var(--white);
+  }
+  
+  [data-theme="dark"] select,
+  [data-theme="dark"] select option {
+    color: var(--dropdown-text);
+    background-color: var(--dark-gray);
+  }
+  
+  /* Fix other specific elements that might need adjustment */
   [data-theme="dark"] .header,
   [data-theme="dark"] .hero {
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    color: white; /* Ensures text stays visible in header/hero */
   }
   
-  [data-theme="dark"] .inspiration-meter {
-    background: linear-gradient(135deg, #5a3d8a, #a83279);
+  [data-theme="dark"] .card h3 {
+    color: var(--violet); /* Maintain purple color for card titles */
   }
   
+  [data-theme="dark"] .result-container {
+    color: var(--text-dark);
+    background-color: var(--dark-gray);
+  }
+  
+  /* Ensure all buttons remain visible */
+  [data-theme="dark"] .btn {
+    color: white;
+    border-color: var(--medium-gray);
+  }
+
   [data-theme="dark"] .btn.white {
     background: var(--dark-gray);
     color: var(--text-dark);
-    border-color: var(--text-light);
+    border: 2px solid var(--violet);
   }
   
-  [data-theme="dark"] .theme-toggle {
-    background: rgba(0,0,0,0.2);
-    color: var(--text-dark);
+  [data-theme="dark"] .btn.dark {
+    background: linear-gradient(45deg, var(--indigo), var(--purple));
+    color: white;
+  }
+  
+  [data-theme="dark"] .btn.light {
+    background: linear-gradient(45deg, var(--blue-teal), var(--teal));
+    color: white;
+  }
+  
+  [data-theme="dark"] .btn.red {
+    background: linear-gradient(45deg, var(--fuchsia), #ff2d75);
+    color: white;
+  }
+  
+  /* Delete buttons in favorites */
+  [data-theme="dark"] .delete-btn {
+    background: var(--danger);
+    color: white;
+  }
+  
+  /* Inspiration meter button */
+  [data-theme="dark"] .inspiration-meter .btn.white {
+    background: var(--dark-gray);
+    color: var(--violet);
+    border: 2px solid var(--violet);
+  }
+  
+  /* Hover states for dark mode */
+  [data-theme="dark"] .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+  }
+  
+  /* Filter section buttons */
+  [data-theme="dark"] .filter-section .btn {
+    color: white;
+    background: var(--indigo);
+  }
+  
+  /* Ensure spinner remains visible */
+  [data-theme="dark"] .spinner {
+    border-top-color: white;
   }
   
   .section {
@@ -166,100 +237,26 @@
     margin: 0 auto;
   }
   
- /* ===== Custom Alert Popups ===== */
-.alert-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+  /* Remove all custom alert styling */
+.alert {
+    /* Reset to default browser styles */
+    font-weight: normal;
+    margin-bottom: 1em;
+    font-size: 1em;
+    color: inherit;
+    /* Remove any custom animations or effects */
+    animation: none;
+    text-shadow: none;
+    /* Revert to system alert appearance */
+    padding: initial;
+    background: initial;
+    border: initial;
+    border-radius: initial;
+    box-shadow: initial;
   }
   
-  .alert-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
+  /* Let the browser handle native alerts and confirm dialogs */
   
-  .custom-alert {
-    background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-    border-top: 4px solid var(--fuchsia);
-  }
-  
-  .alert-overlay.active .custom-alert {
-    transform: translateY(0);
-  }
-  
-  .custom-alert h3 {
-    color: var(--indigo);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-  }
-  
-  .custom-alert p {
-    color: var(--dark-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-  }
-  
-  .alert-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-  
-  .alert-btn {
-    padding: 0.7rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-  }
-  
-  .alert-btn.confirm {
-    background: linear-gradient(45deg, var(--purple), var(--fuchsia));
-    color: white;
-  }
-  
-  .alert-btn.cancel {
-    background: var(--medium-gray);
-    color: var(--dark-gray);
-  }
-  
-  /* Dark Mode Support */
-  [data-theme="dark"] .custom-alert {
-    background: var(--dark-gray);
-    border-top-color: var(--violet);
-  }
-  
-  [data-theme="dark"] .custom-alert h3 {
-    color: var(--blue-teal);
-  }
-  
-  [data-theme="dark"] .custom-alert p {
-    color: var(--text-light);
-  }
-  
-  [data-theme="dark"] .alert-btn.cancel {
-    background: var(--medium-gray);
-    color: var(--text-dark);
-  }
   .hero-buttons {
     display: flex;
     gap: 1rem;
