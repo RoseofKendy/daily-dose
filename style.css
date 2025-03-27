@@ -75,6 +75,73 @@
     font-size: 1.2rem;
     opacity: 0.9;
   }
+
+  /* ===== Theme Toggle Button ===== */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+  }
+  
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+  }
+  
+  /* Dark Mode Styles */
+  [data-theme="dark"] {
+    --text-dark: #e0e0e0;
+    --text-light: #b0b0b0;
+    --bg-light: #121212;
+    --dark-gray: #2a2a2a;
+    --medium-gray: #1e1e1e;
+    --white: #1e1e1e;
+  }
+  
+  [data-theme="dark"] body {
+    background-color: #121212;
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .section,
+  [data-theme="dark"] .detail,
+  [data-theme="dark"] .filtered-quote-display,
+  [data-theme="dark"] .card {
+    background-color: var(--dark-gray);
+    color: var(--text-dark);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  [data-theme="dark"] .header,
+  [data-theme="dark"] .hero {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  
+  [data-theme="dark"] .inspiration-meter {
+    background: linear-gradient(135deg, #5a3d8a, #a83279);
+  }
+  
+  [data-theme="dark"] .btn.white {
+    background: var(--dark-gray);
+    color: var(--text-dark);
+    border-color: var(--text-light);
+  }
+  
+  [data-theme="dark"] .theme-toggle {
+    background: rgba(0,0,0,0.2);
+    color: var(--text-dark);
+  }
   
   .section {
     background: white;
