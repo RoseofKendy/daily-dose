@@ -25,13 +25,18 @@
     </div>
   </section>
 
-<section class="detail"></section>
+  <!-- Detailed Quote Section -->
+  <section class="detail">
+    <div id="quote-display">
+      <p id="quote-text"></p>
+      <p id="quote-author"></p>
+    </div>
+  </section>
 
   <!-- Quote Categories (with hover preview) -->
   <section class="section">
     <h2>Quote Categories</h2>
     <div class="category-container">
-
       <div class="category-card">
         <img src="./images/Trial.jpg" alt="Love">
         <h3>Love</h3>
@@ -52,42 +57,65 @@
         <p class="description">Get inspired to push forward and succeed.</p>
         <p class="sample-quote">"Don't watch the clock; do what it does. Keep going."</p>
       </div>
-
     </div>
   </section>
 
-  <!-- Detailed Quote Section -->
-  <section class="filter-section">
-    <label for="categoryFilter">Filter by Category:</label>
-    <select id="categoryFilter" class="btn light">
-      <option value="">All</option>
-      <option value="Love">Love</option>
-      <option value="Self">Self</option>
-      <option value="Work">Work</option>
-    </select>
-  </section>
-  
+<!-- Filter Section -->
+<section class="filter-section">
+  <label for="categoryFilter">Filter by Category:</label>
+  <select id="categoryFilter" class="btn light">
+    <option value="">All</option>
+    <option value="love">Love</option>
+    <option value="self">Wisdom</option>
+    <option value="work">Motivation</option>
+  </select>
+  <button id="generate-category-btn" class="btn">Generate Quote</button>
 
-  <!-- Favorites -->
+  <div class="filtered-quote-display">
+    <p id="filtered-quote-text"></p>
+    <p id="filtered-quote-author"></p>
+  </div>
+
+  <button id="filtered-save-fav-btn" class="btn">Save to Favorites</button>
+</section>
+  
+  <!-- Favorites Section -->
   <section class="section">
-    <h2>Favorites</h2>
-    <div class="grid" id="favorites-grid">
-    <button id="clearFavoritesBtn">Clear all Favorites</button>
+    <div class="container">
+      <h2 class="heading">Favorite Quotes</h2>
+      <div class="grid" id="favorites-grid">
+        <!-- Favorite quote cards will be dynamically inserted here by JS -->
+      </div>
+      <button id="clearFavoritesBtn" class="btn red">Clear all Favorites</button>
+    </div>
   </section>
 
   <!-- JavaScript Snippet Feature Section -->
-  <section class="section">
-    <h2>Interactive Feature: Inspiration Meter</h2>
-    <p>Click the button to see how inspired you are today!</p>
-    <button id="inspire-btn" class="btn white">Check Inspiration</button>
-    <p id="inspirationResult"></p>
-  </section>
+ <section class="section inspiration-meter">
+  <h2>Interactive Feature: Inspiration Meter</h2>
+  <p>Click the button to see how inspired you are today!</p>
+  
+  <div class="inspiration-container">
+    <button id="inspire-btn" class="btn white">
+      <span class="btn-text">Check Inspiration</span>
+      <span class="spinner" aria-hidden="true"></span>
+    </button>
+    
+    <div class="result-container">
+      <div class="meter-visual">
+        <div class="meter-fill" id="meterFill"></div>
+      </div>
+      <p id="inspirationResult" class="result-text"></p>
+      <p class="result-tip" id="inspirationTip"></p>
+    </div>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer class="footer">
-    Info about Daily Dose’s sources and copyright information
+    Info about Daily Dose's sources and copyright information
   </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
