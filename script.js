@@ -295,7 +295,37 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error('Failed to delete favorite:', err));
   }
 
-  
+  function clearAllFavorites() {
+    if (!confirm('Are you sure you want to clear ALL favorites? This cannot be undone.')) {
+        return;
+    }
+
+    fetch(favoritesAPI)
+    .then(res => res.json())
+        .then(favorites => {
+            // Create an array of delete promises
+            const deletePromises = favorites.map(fav => {
+                return fetch(`${favoritesAPI}/${fav.id}`, { 
+                    method: 'DELETE' 
+                });
+            });
+
+            // Execute all delete operations
+            return Promise.all(deletePromises);
+        })
+        .then(() => {
+            // Clear local favorites array
+            favorites = [];
+            // Refresh the display
+            renderFavorites(favorites);
+            alert('All favorites have been cleared!');
+        })
+        .catch(err => {
+            console.error('Error clearing favorites:', err);
+            alert('Failed to clear favorites. Please try again.');
+        });
+}
+
 
   // Initialize the application
   init();
