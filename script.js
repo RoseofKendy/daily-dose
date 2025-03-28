@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed');
 
   // API endpoints
-  const quoteAPI = 'http://localhost:3000/quotes';
-  const favoritesAPI = 'http://localhost:3000/favorites';
+  const quoteAPI = 'https://daily-dose-c0wx.onrender.com/quotes';
+  const favoritesAPI = 'https://daily-dose-c0wx.onrender.com/favorites';
   
   // DOM elements
   const themeToggle = document.getElementById('themeToggle');
