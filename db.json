@@ -603,25 +603,32 @@
   ],
   "favorites": [
     {
-      "id": "62",
-      "text": "The future depends on what you do today.",
-      "author": "Mahatma Gandhi",
+      "id": "29",
+      "text": "Love is composed of a single soul inhabiting two bodies.",
+      "author": "Aristotle",
+      "category": "love",
+      "image": "./images/love.jpg"
+    },
+    {
+      "id": "21",
+      "text": "No one can make you feel inferior without your consent.",
+      "author": "Eleanor Roosevelt",
+      "category": "self",
+      "image": "./images/self.jpg"
+    },
+    {
+      "id": "88",
+      "text": "Dreams don't work unless you do.",
+      "author": "John C. Maxwell",
       "category": "work",
-      "image": "./images/Trial.jpg"
+      "image": "./images/work.jpg"
     },
     {
-      "id": "89",
-      "text": "You are enough just as you are.",
-      "author": "Meghan Markle",
+      "id": "34",
+      "text": "Act as if what you do makes a difference. It does.",
+      "author": "William James",
       "category": "self",
-      "image": "./images/Trial.jpg"
-    },
-    {
-      "id": "8",
-      "text": "Be yourself; everyone else is already taken.",
-      "author": "Oscar Wilde",
-      "category": "self",
-      "image": "./images/Trial.jpg"
+      "image": "./images/self.jpg"
     }
   ]
 }
