@@ -177,12 +177,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
-    currentQuote = {
-      ...randomQuote,
-      image: "./images/Trial.jpg"
-    };
-    displayQuote(currentQuote);
-  }
+  
+  // Get the correct image for the quote's category
+  const image = getCategoryImage(randomQuote.category);
+  
+  currentQuote = {
+    ...randomQuote,
+    image: image
+  };
+  displayQuote(currentQuote);
+}
+
+// Helper function to get the correct image for a category
+function getCategoryImage(category) {
+  const categoryImages = {
+    'love': './images/love.jpg',
+    'self': './images/self.jpg',
+    'work': './images/work.jpg'
+    // Add more categories as needed
+  };
+  
+  return categoryImages[category.toLowerCase()] || "./images/Trial.jpg";
+}
 
   // Generate quote from currently selected category
   function generateFromSelectedCategory() {
@@ -197,19 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchRandomQuoteFromCategory(category) {
     const filteredQuotes = allQuotes.filter(quote => quote.category === category);
     
-   if (filteredQuotes.length === 0) {
-    filteredQuoteText.textContent = "No quotes found for this category.";
-    filteredQuoteAuthor.textContent = "";
-    currentQuote = null;
-    return;
-  }
-
-  const randomQuote = filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)];
-  currentQuote = {
-    ...randomQuote,
-    image: "./images/Trial.jpg"
-  };
-  displayFilteredQuote(currentQuote);
+    if (filteredQuotes.length === 0) {
+      filteredQuoteText.textContent = "No quotes found for this category.";
+      filteredQuoteAuthor.textContent = "";
+      currentQuote = null;
+      return;
+    }
+  
+    const randomQuote = filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)];
+    
+    currentQuote = {
+      ...randomQuote,
+      image: getCategoryImage(category)
+    };
+    
+    displayFilteredQuote(currentQuote);
   }
 
   function displayFilteredQuote(quote) {
